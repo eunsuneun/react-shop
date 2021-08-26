@@ -18,18 +18,23 @@ function App() {
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='me-auto'>
-              <Nav.Link>
-                <Link to='/'>Home</Link>
+              <Nav.Link as={Link} to='/'>
+                Home
               </Nav.Link>
-              <Nav.Link>
-                <Link to='/detail'>Detail</Link>
+              <Nav.Link as={Link} to='/about'>
+                About
               </Nav.Link>
-              <NavDropdown title='Dropdown' id='basic-nav-dropdown'>
-                <NavDropdown.Item>>Action</NavDropdown.Item>
-                <NavDropdown.Item>Another action</NavDropdown.Item>
-                <NavDropdown.Item>Something</NavDropdown.Item>
+              <NavDropdown title='Detail' id='basic-nav-dropdown'>
+                <NavDropdown.Item>
+                  <Link to='/detail/0'>상품0</Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link to='/detail/1'>상품1</Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link to='/detail/2'>상품2</Link>
+                </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item>Separated link</NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
