@@ -5,6 +5,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 import './App.css';
 import prds from './data.js';
 import Detail from './Detail.js';
+import About from './About.js';
 
 function App() {
   let [prd, fnPrd] = useState(prds);
@@ -73,6 +74,8 @@ function App() {
         <Route path='/detail/:id'>
           <Detail prd={prd}></Detail>
         </Route>
+        {/* About 페이지 */}
+        <Route path='/About' component={About}></Route>
       </Switch>
     </div>
   );

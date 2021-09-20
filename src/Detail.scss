@@ -1,5 +1,7 @@
 $main: blue;
-
+h4 {
+  padding: 20px;
+}
 .blue {
   color: $main;
 }
@@ -10,5 +12,6 @@ $main: blue;
   p {
     padding: 0;
     margin: 0;
+    color: red;
   }
 }
