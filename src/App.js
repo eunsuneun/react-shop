@@ -6,9 +6,11 @@ import './App.css';
 import prds from './data.js';
 import Detail from './Detail.js';
 import About from './About.js';
+import axios from 'axios';
 
 function App() {
   let [prd, fnPrd] = useState(prds);
+  let [stock, fnStock] = useState([10, 20, 30]);
   return (
     <div className='App'>
       <Navbar bg='light' expand='lg'>
@@ -67,12 +69,28 @@ function App() {
               {prd.map((v, i) => {
                 return <Product prd={v} i={i} key={i}></Product>;
               })}
+              <button
+                class='btn btn-outline-dark mx-auto'
+                onClick={() => {
+                  axios.post('서버url', { id: 'codding', pw: 1234 });
+                  axios
+                    .get('https://codingapple1.github.io/shop/data2.json')
+                    .then(rst => {
+                      console.log(rst.data);
+                      fnPrd([...prd, ...rst.data]);
+                    })
+                    .catch(() => {
+                      console.log('ajax요청에 실패했습니다.');
+                    });
+                }}>
+                더 보기
+              </button>
             </div>
           </div>
         </Route>
         {/* 디테일 페이지 */}
         <Route path='/detail/:id'>
-          <Detail prd={prd}></Detail>
+          <Detail prd={prd} stock={stock} fnStock={fnStock}></Detail>
         </Route>
         {/* About 페이지 */}
         <Route path='/About' component={About}></Route>

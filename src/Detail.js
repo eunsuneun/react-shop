@@ -22,7 +22,14 @@ function Detail(props) {
           <h4 className='pt-5'>{prdById.title}</h4>
           <p>{prdById.content}</p>
           <p>{prdById.price}</p>
-          <button className='btn btn-danger'>주문하기</button>
+          <Stock stock={props.stock}></Stock>
+          <button
+            className='btn btn-danger'
+            onClick={() => {
+              props.fnStock([8, 8, 8]);
+            }}>
+            주문하기
+          </button>
           <br />
           <br />
           <button
@@ -38,4 +45,7 @@ function Detail(props) {
   );
 }
 
+function Stock(props) {
+  return <p>재고 : {props.stock[0]}</p>;
+}
 export default Detail;
